@@ -1,0 +1,17 @@
+{
+  "filters": {
+    "comments": true
+  },
+  "rules": {
+    "no-todo": {
+      "severity": "warning"
+    },
+    "spellcheck-tech-word": true,
+    "preset-ja-technical-writing": true,
+    "prh": {
+      "rulePaths": [
+        "rules/prh.yml"
+      ]
+    }
+  }
+}

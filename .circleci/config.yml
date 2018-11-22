@@ -1,0 +1,22 @@
+
+version: 2
+
+jobs:
+  test:
+    working_directory: ~/project
+    docker:
+      - image: circleci/node:8.13.0
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - dependency-cache-{{ checksum "package.json" }}
+            - dependency-cache-
+      - run: npm install
+      - run:
+          name: Lint check
+          command: npx textlint docs
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
